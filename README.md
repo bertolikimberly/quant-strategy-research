@@ -47,6 +47,6 @@ tests/               # automated tests
 - The research window configured in `run_bakeoff.py` is **2010-01-01 to 2024-12-31**, with a 70/30 chronological split and 1,000 permutations by default.
 - Historical data are retrieved through yfinance; revised prices, missing data, slippage assumptions, and ticker availability can affect results.
 - Backtested outcomes are hypothetical. They are **not** verified live returns and do not guarantee future performance.
-- See [`CLAUDE.md`](CLAUDE.md) for the original detailed technical design notes and explicit model assumptions.
+- See [`framework.md`](framework.md) for the original detailed technical design notes and explicit model assumptions.
 
 **Author:** Kimberly Bertoli. Educational quantitative-finance research. Not investment advice.
