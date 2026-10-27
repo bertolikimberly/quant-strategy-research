@@ -17,7 +17,7 @@ to prevent that.
 
 ```
 quant-fund-sim/
-├── CLAUDE.md                 # this file
+├── framework.md                 # this file
 ├── README.md                 # short user-facing overview
 ├── requirements.txt          # pinned dependency floor
 ├── .gitignore                # excludes caches, results, venvs
