@@ -1,0 +1,37 @@
+# --- Core numerical / data stack ---------------------------------------------
+# pandas: time-indexed DataFrames are the natural container for OHLCV price data
+#         and daily strategy return series. Almost every module touches it.
+# numpy:  underlying array math + RNG for the permutation test.
+# scipy:  used in metrics (e.g. statistical distributions for null comparisons,
+#         could swap to scipy.stats if we extend the validation module).
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+
+# --- Statistical inference ----------------------------------------------------
+# statsmodels gives us a battle-tested HAC (heteroskedasticity- and
+# autocorrelation-consistent) covariance estimator, which is what we need for
+# the Newey-West-corrected t-statistic on mean daily return. Rolling our own
+# is a one-line formula but easy to get wrong on the lag weighting — better
+# to call a library that's been audited.
+statsmodels>=0.14
+
+# --- Market data --------------------------------------------------------------
+# yfinance is free, requires no API key, and gives us daily OHLCV for major
+# tickers. LIMITATIONS we accept (and document in CLAUDE.md):
+#   - Adjusted prices can change over time as splits/dividends are re-applied,
+#     so identical code today vs in 6 months may produce slightly different
+#     backtests. We mitigate by caching the first download to parquet.
+#   - Data has occasional gaps / errant prints; a production system would use
+#     a paid vendor (Polygon, Refinitiv) with explicit corrections logs.
+yfinance>=0.2.40
+
+# --- Plotting (optional but useful for results inspection) -------------------
+matplotlib>=3.7
+
+# --- Testing -----------------------------------------------------------------
+pytest>=8.0
+
+# --- File I/O ----------------------------------------------------------------
+# pyarrow lets pandas write/read parquet for the on-disk price cache.
+pyarrow>=15.0
