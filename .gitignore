@@ -1,0 +1,42 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments (any common name)
+.venv/
+venv/
+env/
+ENV/
+
+# Editor / IDE caches
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Project-specific:
+# Cached data pulled from external sources (yfinance, etc.).
+# We deliberately do NOT commit raw price data — the loader will re-download
+# (or hit its on-disk cache) on first run. This keeps the repo small and
+# avoids licensing ambiguity around redistributing market data.
+src/data/cache/
+*.parquet
+*.csv.gz
+
+# All outputs of the framework (backtest equity curves, scorecards, plots).
+# These are derived artifacts; they should be regenerated from the code,
+# not committed. The empty results/ folder is kept via results/.gitkeep.
+results/*
+!results/.gitkeep
+
+# Test / coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
